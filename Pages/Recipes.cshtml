@@ -1,0 +1,28 @@
+﻿@page
+@model Recipes.Pages.RecipesModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Recipes";
+}
+
+<h2>Recipes</h2>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Created Date</th>
+        <th>Complexity</th>
+        <th>Preparation Time (minutes)</th>
+    </tr>
+    @foreach (var recipe in Model.Recipes)
+    {
+        <tr>
+            <td>@recipe.Title</td>
+            <td>@recipe.Category</td>
+            <td>@recipe.CreatedDate.ToString("dd/MM/yyyy")</td>
+            <td>@recipe.Complexity</td>
+            <td>@recipe.PreparationTime.ToString("N0")</td>
+        </tr>
+    }
+</table>
